@@ -7,7 +7,7 @@ import './components/questionForm.scss'
 
 export const questionList = [
   { username: "Codegeek", text: "Why is React the best?" },
-  { username: "Supercat", text: "What framework should I use for PHP backend?" }
+  // { username: "Supercat", text: "What framework should I use for PHP backend?" }
 ]
 
 function App() {
@@ -22,6 +22,8 @@ function App() {
     const newList = [...questions]
     newList.push({ username: input, text: textArea })
     setQuestions(newList)
+    setTextArea('')
+    setInput('')
   }
 
   const handleInput = (e) => {

@@ -26,6 +26,7 @@ export const Answer = (props) => {
         <div className="answers">
 
             <p>{props.answerData.text}</p>
+            <div className="answer-username">- {props.answerData.username}</div>
             <Likes />
             {
                 comments.map((comment, index) => {
