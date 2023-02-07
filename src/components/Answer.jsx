@@ -3,8 +3,11 @@ import { Likes } from './Likes'
 import './answer.scss'
 
 export const Answer = (props) => {
+
+    const [comments, setComments] = useState([])
+
     const [input, setInput] = useState('')
-    const [comment, setComment] = useState('')
+    // const [comment, setComment] = useState('')
 
     const handleInput = (e) => {
         setInput(e.target.value);
@@ -12,27 +15,29 @@ export const Answer = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setComment(input);
+        const newArray = [...comments];
+        newArray.push(input);
+        setComments(newArray);
         setInput('');
     }
 
 
     return (
         <div className="answers">
-         
-             <p>{props.answerData.text}</p>
-                <Likes />
-                {
-                    comment !== '' && (
-                        <p className="comment">{comment} <span class="comment-user">- myusername</span></p>
-                    ) 
-                }
-         
+
+            <p>{props.answerData.text}</p>
+            <Likes />
+            {
+                comments.map((comment, index) => {
+                    return <p key={index} className="comment">{comments[index]} <span className="comment-user">- myusername</span></p>
+                })
+            }
+
             <form className="comment-form" onSubmit={handleSubmit}>
-                <input type="text" value={input} onChange={handleInput}/>
+                <input type="text" value={input} onChange={handleInput} />
                 <button type="submit">Reply</button>
             </form>
-           
+
         </div>
     )
 }
