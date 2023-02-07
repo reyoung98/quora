@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Likes } from './Likes'
+import './answer.scss'
 
 export const Answer = (props) => {
     const [input, setInput] = useState('')
@@ -17,19 +18,21 @@ export const Answer = (props) => {
 
 
     return (
-        <>
-         <p>{props.answer}</p>
-            <Likes />
-            {
-                comment !== '' && (
-                    <p>{comment}</p>
-                ) 
-            }
-            <form onSubmit={handleSubmit}>
+        <div className="answers">
+         
+             <p>{props.answerData.text}</p>
+                <Likes />
+                {
+                    comment !== '' && (
+                        <p className="comment">{comment} <span class="comment-user">- myusername</span></p>
+                    ) 
+                }
+         
+            <form className="comment-form" onSubmit={handleSubmit}>
                 <input type="text" value={input} onChange={handleInput}/>
-                <button type="submit">Add comment</button>
+                <button type="submit">Reply</button>
             </form>
            
-        </>
+        </div>
     )
 }

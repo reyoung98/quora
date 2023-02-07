@@ -1,4 +1,5 @@
 import { useState } from "react"
+import './likes.scss'
 
 export const Likes = (props) => {
     const [likes, setLikes] = useState(0)
@@ -8,9 +9,9 @@ export const Likes = (props) => {
     }
 
     return (
-        <>
-            <p>Likes: {likes}</p>
-            <button onClick={addLike}>I like this</button>
-        </>
+        <div className="likes">
+            <button onClick={addLike}>👍</button>
+            <p>{likes}</p>
+        </div>
     )
 }

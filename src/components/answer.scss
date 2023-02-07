@@ -1,0 +1,27 @@
+.answers {
+    border-bottom: 1px solid rgba(0,0,0,.2)
+}
+
+.comment {
+    margin-left: 2rem;
+    padding-left: .5rem;
+    color: #666;
+    border-left: 1px solid gray;
+}
+
+.comment-user {
+    font-size: .8rem;
+    margin-left: 1rem;
+}
+
+.comment-form {
+    margin: 1rem;
+
+    button {
+        margin: 0 1.5rem;
+    }
+
+    input {
+        width: 60%;
+    }
+}
